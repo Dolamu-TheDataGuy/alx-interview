@@ -4,7 +4,7 @@
 
 def factorial(n):
     """
-    Calculates the factorial of n
+    obtain the factorial of an integer n
     """
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
@@ -19,7 +19,7 @@ def factorial(n):
 
 def combination(n, r):
     """
-    Calculates the combinatorial coefficients
+    Calculates the combinatorial coefficients of n and r
     """
     if not isinstance(n, int) and not isinstance(r, int):
         raise TypeError("n and r must be integers")
@@ -32,13 +32,13 @@ def pascal_triangle(n):
     """
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
-    output_arr = []
+    arr = []
     if n <= 0:
         return [output_arr]
 
-    for i in range(n):
-        arr = []
-        for j in range(i+1):
-            arr.append(combination(i, j))
-        output_arr.append(arr)
-    return output_arr
+    for a in range(n):
+        pascal_list = []
+        for b in range(a+1):
+            pascal_list.append(combination(a, b))
+        arr.append(pascal_list)
+    return arr
