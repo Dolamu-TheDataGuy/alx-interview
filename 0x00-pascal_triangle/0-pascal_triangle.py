@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+A program that implements Pascals triangle
+"""
+
 def factorial(n):   
     """
     Obtain the factorial of an integer n
@@ -9,7 +13,7 @@ def factorial(n):
         raise TypeError("n must be an integer")
     if n < 0:
         raise TypeError("n must be greater than or equal to 0")
-    if n == 0 or n == 1:
+    if n == 0:
         return 1
     else:
         fact = n * factorial(n-1)
