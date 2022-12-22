@@ -1,18 +1,15 @@
 #!/usr/bin/python3
+""" A program that Implements Pascals triangle"""
 
-"""
-A program that implements Pascals triangle
-"""
 
-def factorial(n):   
+def factorial(n):
     """
-    Obtain the factorial of an integer n
-
-    """     
+    Calculates the factorial of n
+    """
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
     if n < 0:
-        raise TypeError("n must be greater than or equal to 0")
+        return False
     if n == 0:
         return 1
     else:
@@ -20,30 +17,28 @@ def factorial(n):
         return fact
 
 
-def combination(n,r):
+def combination(n, r):
     """
-    Calculate the combination of 2 numbers to get the sequence in a the triangle
-
+    Calculates the combinatorial coefficients
     """
-    if not isinstance(n, int) and not isinstance(r,int):
+    if not isinstance(n, int) and not isinstance(r, int):
         raise TypeError("n and r must be integers")
     return int(factorial(n)/(factorial(n-r)*factorial(r)))
 
+
 def pascal_triangle(n):
     """
-    Output the pascal triangle of height n
-
+    Construct the pascal triangle of height n
     """
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
-    arr = []
-
+    output_arr = []
     if n <= 0:
-        return [arr]
+        return [output_arr]
 
-    for a in range(n):
-        pascal_list = []
-        for b in range(a+1):
-            pascal_list.append(combination(a, b))
-        arr.append(pascal_list)
-    return arr
+    for i in range(n):
+        arr = []
+        for j in range(i+1):
+            arr.append(combination(i, j))
+        output_arr.append(arr)
+    return output_arr
