@@ -1,9 +1,12 @@
-#!usr/bin/python3
+#!/usr/bin/python3
+
+"""
+A program that implements Pascal Triangle
+"""
 
 def factorial(n):   
     """
     Obtain the factorial of an integer n
-    
     """     
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
