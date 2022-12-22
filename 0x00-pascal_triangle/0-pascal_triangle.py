@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 
-"""
-A program that implements Pascal Triangle
-"""
-
 def factorial(n):   
     """
     Obtain the factorial of an integer n
+
     """     
     if not isinstance(n, int):
         raise TypeError("n must be an integer")
@@ -37,9 +34,7 @@ def pascal_triangle(n):
         raise TypeError("n must be an integer")
     arr = []
 
-    if n < 0:
-        raise ValueError("n must greater than or equal to 0")
-    if n == 0:
+    if n <= 0:
         return [arr]
 
     for a in range(n):
