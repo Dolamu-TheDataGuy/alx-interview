@@ -1,19 +1,29 @@
 #!/usr/bin/python3
 
+"""
+A Program that implements Pascals triangle
+
+"""
+
 def pascal_triangle(n):
     """
     implementation of pascal's triangle
 
     """
     pascal_list = [[1], [1,1]]
+
     if n <= 0:
+
         return []
 
     if n == 1:
-        return [pascal_list[0]]
+
+        return [1]
     
     if n == 2:
+
         return pascal_list
+
 
     for i in range(3, n+1):
         prev_row = pascal_list[-1]
