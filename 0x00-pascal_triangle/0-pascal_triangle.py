@@ -1,44 +1,30 @@
 #!/usr/bin/python3
-""" A program that Implements Pascals triangle"""
-
-
-def factorial(n):
-    """
-    obtain the factorial of an integer n
-    """
-    if not isinstance(n, int):
-        raise TypeError("n must be an integer")
-    if n < 0:
-        return False
-    if n == 0:
-        return 1
-    else:
-        fact = n * factorial(n-1)
-        return fact
-
-
-def combination(n, r):
-    """
-    Calculates the combinatorial coefficients of n and r
-    """
-    if not isinstance(n, int) and not isinstance(r, int):
-        raise TypeError("n and r must be integers")
-    return int(factorial(n)/(factorial(n-r)*factorial(r)))
-
 
 def pascal_triangle(n):
     """
-    Construct the pascal triangle of height n
-    """
-    if not isinstance(n, int):
-        raise TypeError("n must be an integer")
-    arr = []
-    if n <= 0:
-        return arr
+    implementation of pascal's triangle
 
-    for a in range(n):
-        pascal_list = []
-        for b in range(a+1):
-            pascal_list.append(combination(a, b))
-        arr.append(pascal_list)
-    return arr
+    """
+    pascal_list = [[1], [1,1]]
+    if n <= 0:
+        return []
+
+    if n == 1:
+        return [pascal_list[0]]
+    
+    if n == 2:
+        return pascal_list
+
+    for i in range(3, n+1):
+        prev_row = pascal_list[-1]
+        prev_len = len(prev_row)
+        temp = list(range(prev_len+1))
+        for  a in range(prev_len):
+            if a == 0:
+                temp[a] = prev_row[a]
+            else:
+                temp[a] = prev_row[a] + prev_row[a-1]
+        temp[-1] = 1
+        prev_row = temp
+        pascal_list.append(temp)
+    return pascal_list
