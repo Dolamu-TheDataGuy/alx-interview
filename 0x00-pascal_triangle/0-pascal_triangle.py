@@ -34,7 +34,7 @@ def pascal_triangle(n):
         raise TypeError("n must be an integer")
     arr = []
     if n <= 0:
-        return [output_arr]
+        return [arr]
 
     for a in range(n):
         pascal_list = []
