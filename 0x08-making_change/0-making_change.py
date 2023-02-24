@@ -25,21 +25,19 @@ def makeChange(coins, total):
 
     coins.sort(reverse=True)
     coin_count = 0
-    for coin in coins:
-        if total % coin == 0:
-            coin_count += int(total / coin)
+    for i in coins:
+        if total % i == 0:
+            coin_count += int(total / i)
             return coin_count
-        if total - coin >= 0:
-            if int(total / coin) > 1:
-                coin_count += int(total / coin)
-                total = total % coin
+        if total - i >= 0:
+            if int(total / i) > 1:
+                coin_count += int(total / i)
+                total = total % i
             else:
                 coin_count += 1
-                total -= coin
+                total -= i
                 if total == 0:
                     break
     if total > 0:
         return -1
     return coin_count
-
-
